@@ -1,25 +1,43 @@
+import ipdb
+
 class Stack:
 
     def __init__(self, items = [], limit = 100):
-        pass
+        self.items = items
+        self.limit = limit
 
     def isEmpty(self):
-        pass
+        if self.items: 
+            return False
+        else:
+            return True
+        
 
     def push(self, item):
-        pass
+        return self.items.append(item) if not self.full() else False
 
     def pop(self):
-        pass
+        if not self.isEmpty():
+            return self.items.pop()
 
     def peek(self):
-        pass
+        i = len(self.items)-1
+        return self.items[i]
     
     def size(self):
-        pass
+        return len(self.items)
 
     def full(self):
-        pass
+        if self.size() >= self.limit:
+            return True
+        else:
+            False
 
     def search(self, target):
-        pass
+        if target in self.items:
+            return self.peek() - target
+        else:
+            return -1
+
+# stk = Stack([5,6,7,8,9,10])
+# ipdb.set_trace()
